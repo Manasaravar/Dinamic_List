@@ -9,6 +9,11 @@ public class ForwarList {
         size = 0;
         System.out.println("LEconsructor:\t" + Integer.toHexString(this.hashCode()));
     }
+    public ForwarList(ForwarList copyForwardList) {
+        this.Head = copyForwardList.Head;
+        size = 0;
+        System.out.println("LECopyconsructor:\t" + Integer.toHexString(this.hashCode()));
+    }
 
     public void push_front (int Data) {
         Head = new Element(Data,Head);
