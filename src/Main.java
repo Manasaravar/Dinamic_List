@@ -16,7 +16,23 @@ public class Main {
         list.print();
         System.out.println();
 
-        list.push_back(9999);
+/*        list.push_back(9999);
         list.print();
+        list.pop_front();
+        list.print();
+        list.pop_back();
+        list.print();*/
+        /*System.out.print("Enter value : ");
+        int value = scanner.nextInt();*/
+        System.out.println();
+        System.out.print("Enter index : ");
+        int index = scanner.nextInt();
+        list.erase(index);
+        list.print();
+
+        list.revers();
+        list.print();
+
+        list.clear();
     }
 }
