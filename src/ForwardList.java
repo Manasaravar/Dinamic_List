@@ -1,5 +1,5 @@
-public class ForwardList {
-    Element Head;
+public class ForwardList <T>{
+    Element<T> Head;
     int size;
 
     public ForwardList() {
@@ -8,17 +8,17 @@ public class ForwardList {
         System.out.println("LEconsructor:\t" + Integer.toHexString(this.hashCode()));
     }
 
-    public ForwardList(ForwardList other) {
+    public ForwardList(ForwardList <T> other) {
         //this.Head = copyForwardList.Head;
         size = 0;
-        for (Element Temp = other.Head; Temp != null; Temp = Temp.getNext()) {
+        for (Element<T> Temp = other.Head; Temp != null; Temp = Temp.getNext()) {
             this.push_front(Temp.getData());
         }
-        reverse();
+        revers();
         System.out.println("LECopyconsructor:\t" + Integer.toHexString(this.hashCode()));
     }
     public void reverse (){
-        ForwardList reverse = new ForwardList();
+        ForwardList<T> reverse = new ForwardList<T>();
         while(Head!=null) {
             reverse.push_front(Head.Data);
             pop_front();
@@ -27,8 +27,8 @@ public class ForwardList {
         reverse.Head = null;
     }
 
-    public void push_front (int Data) {
-        Head = new Element(Data,Head);
+    public void push_front (T Data) {
+        Head = new Element<T>(Data,Head);
 /*      Element New = new Element(Data);
         New.setNext(Head);
         Head = New;*/
@@ -36,9 +36,9 @@ public class ForwardList {
     }
 
 
-    public void push_back (int Data) {
-        Element New = new Element(Data);
-        Element current = Head;
+    public void push_back (T Data) {
+        Element <T> New = new Element(Data);
+        Element <T> current = Head;
         if (Head == null) {
             push_front(Data);
             return;
@@ -62,13 +62,13 @@ public class ForwardList {
       temp.setNext(null);
         size--;
     }
-    public void insert (int Data, int Index) {
+    public void insert (T Data, int Index) {
         if (Index == 0) {
             push_front(Data);
             return;
         } if (Index > size)
             return;
-        Element temp = Head;
+        Element<T> temp = Head;
         for (int i = 0; i < Index - 1; i++)
             temp = temp.getNext();
         temp.Next = new Element(Data,temp.getNext());
@@ -77,7 +77,7 @@ public class ForwardList {
         temp.setNext(New);*/
     }
     public void erase (int Index) {
-        Element temp = Head;
+        Element<T> temp = Head;
         if (Index == 0) {
              Head = Head.getNext();
              return;
@@ -97,9 +97,9 @@ public class ForwardList {
        if (Head == null)  {
            return;
         }
-            Element nextCurrent = null;
-            Element prevCurrent = null;
-            Element current = Head;
+            Element<T> nextCurrent = null;
+            Element<T> prevCurrent = null;
+            Element<T> current = Head;
             while (current != null) {
             nextCurrent = current.Next; // сохраняем в переменную следующего указатель следующего
             current.Next = prevCurrent; // сохраняем с следующий предыдущий
@@ -111,7 +111,7 @@ public class ForwardList {
 
 
 public void print() {
-    Element temp = Head;
+    Element<T> temp = Head;
     while (temp != null) {
         System.out.print(temp.getData() + "\t");
         temp = temp.getNext();

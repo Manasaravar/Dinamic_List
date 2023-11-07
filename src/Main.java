@@ -44,5 +44,20 @@ public class Main {
         long end_time = System.nanoTime();
         System.out.println("List copy %f seconds ".formatted((double)(end_time-start_time)*1e-9));
        // list2.print();
+        ForwardList d_list = new ForwardList();
+        d_list.push_back(2.7);
+        d_list.push_back(3.14);
+        d_list.print();
+        ForwardList s_list = new ForwardList<>();
+        s_list.push_back("Хорошо");
+        s_list.push_back("живет");
+        s_list.push_back("на свете");
+        s_list.push_back("Винни-пух");
+        s_list.print();
+        ForwardList s_list_2 = new ForwardList<>(s_list);
+        s_list_2.push_back(3.14);
+        s_list_2.push_back(true);
+        s_list_2.print();
+
     }
 }
