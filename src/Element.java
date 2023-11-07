@@ -21,12 +21,12 @@ public class Element {
     public Element(int data) {
         setData(data);
         setNext(null);
-        System.out.println("Econstructor:\t" + Integer.toHexString(this.hashCode()));
+        //System.out.println("Econstructor:\t" + Integer.toHexString(this.hashCode()));
     }
 
     public Element(int data, Element next) {
         setData(data);
         setNext(next);
-        System.out.println("Econstructor2:\t" + Integer.toHexString(this.hashCode()));
+        //System.out.println("Econstructor2:\t" + Integer.toHexString(this.hashCode()));
     }
 }

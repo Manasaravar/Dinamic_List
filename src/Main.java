@@ -9,11 +9,11 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         System.out.print("Enter size List:");
         int n = scanner.nextInt();
-        ForwarList list = new ForwarList();
+        ForwardList list = new ForwardList();
         for (int i = 0; i < n; i++) {
         list.push_front(random.nextInt(100));
         }
-        list.print();
+        //list.print();
         System.out.println();
 
 /*        list.push_back(9999);
@@ -25,14 +25,24 @@ public class Main {
         /*System.out.print("Enter value : ");
         int value = scanner.nextInt();*/
         System.out.println();
-        System.out.print("Enter index : ");
+     /*   System.out.print("Enter index : ");
         int index = scanner.nextInt();
         list.erase(index);
-        list.print();
+        list.print();*/
 
-        list.revers();
-        list.print();
+ //       list.revers();
+  //      list.print();
+//ForwarList list2 = new ForwarList(list);
 
-        list.clear();
+
+
+       // list.pop_back();
+        //list.print();
+        //list.clear();
+        long start_time = System.nanoTime();
+        ForwardList list2 = new ForwardList(list);
+        long end_time = System.nanoTime();
+        System.out.println("List copy %f seconds ".formatted((double)(end_time-start_time)*1e-9));
+       // list2.print();
     }
 }

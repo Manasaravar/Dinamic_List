@@ -1,18 +1,30 @@
-import javax.swing.*;
-
-public class ForwarList {
+public class ForwardList {
     Element Head;
     int size;
 
-    public ForwarList() {
+    public ForwardList() {
         this.Head = null;
         size = 0;
         System.out.println("LEconsructor:\t" + Integer.toHexString(this.hashCode()));
     }
-    public ForwarList(ForwarList copyForwardList) {
-        this.Head = copyForwardList.Head;
+
+    public ForwardList(ForwardList other) {
+        //this.Head = copyForwardList.Head;
         size = 0;
+        for (Element Temp = other.Head; Temp != null; Temp = Temp.getNext()) {
+            this.push_front(Temp.getData());
+        }
+        reverse();
         System.out.println("LECopyconsructor:\t" + Integer.toHexString(this.hashCode()));
+    }
+    public void reverse (){
+        ForwardList reverse = new ForwardList();
+        while(Head!=null) {
+            reverse.push_front(Head.Data);
+            pop_front();
+        }
+        this.Head = reverse.Head;
+        reverse.Head = null;
     }
 
     public void push_front (int Data) {
