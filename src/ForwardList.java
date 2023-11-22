@@ -50,13 +50,15 @@ public class ForwardList {
         }
         size++;
     }
-    public void pop_front () {
+    public void pop_front () throws NullPointerException {
+        if (Head == null) throw new NullPointerException("ForwardList is empty");
         Head = Head.Next;
         size--;
     }
 
-    public void pop_back() {
-      Element temp = Head;
+    public void pop_back() throws NullPointerException {
+      if (Head == null) throw new NullPointerException ("ForwardList is empty");
+        Element temp = Head;
       while (temp.getNext().getNext() != null)
           temp = temp.getNext();
       temp.setNext(null);
